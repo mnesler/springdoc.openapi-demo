@@ -3,6 +3,7 @@ package com.mnesler.controller;
 import com.mnesler.model.User;
 import com.mnesler.model.UserAlreadyExistsException;
 import com.mnesler.model.UserEntity;
+import com.mnesler.model.UserNotFoundException;
 import com.mnesler.repository.UserRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -47,6 +48,10 @@ public class UserController {
       responseCode = "200",
       description = "Fetch User",
       content = @Content(schema = @Schema(implementation = UserEntity.class)))
+  @ApiResponse(
+      responseCode = "404",
+      description = "User not found",
+      content = @Content(schema = @Schema(implementation = UserNotFoundException.class)))
   public UserEntity fetchUser(@PathVariable("username") @NonNull String username) {
     log.info("Fetching  user{}", username);
     return repository.get(username);
