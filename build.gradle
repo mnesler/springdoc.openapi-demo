@@ -22,13 +22,14 @@ sourceCompatibility = "${javaVersion}"
 targetCompatibility = "${javaVersion}"
 
 dependencies {
-    // spring
     implementation("org.springframework.boot:spring-boot-starter:${springBootVersion}")
     implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:${springOpenApiVerion}")
 
-    // spring test
-    testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+    //noinspection VulnerableLibrariesLocal
+    testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}") {
+        exclude group: 'com.jayway.jsonpath', module: 'json-path'
+    }
 
     //lombok
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
