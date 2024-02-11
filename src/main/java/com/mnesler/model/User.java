@@ -30,7 +30,7 @@ public class User {
   @NonNull
   @NotBlank
   @Pattern(regexp = NAME_PATTERN)
-  @Schema(name = "username", example = "Tom Anderson", pattern = NAME_PATTERN)
+  @Schema(name = "name", example = "Tom Anderson", pattern = NAME_PATTERN, description = "FirstName LastName")
   protected String name;
 
   @NonNull
