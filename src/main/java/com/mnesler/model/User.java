@@ -1,5 +1,6 @@
 package com.mnesler.model;
 
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
@@ -30,7 +31,7 @@ public class User {
   @NonNull
   @NotBlank
   @Pattern(regexp = NAME_PATTERN)
-  @Schema(name = "name", example = "Tom Anderson", pattern = NAME_PATTERN, description = "FirstName LastName")
+  @Schema(name = "name", example = "Tom Anderson", pattern = NAME_PATTERN, description = "First Last")
   protected String name;
 
   @NonNull
@@ -39,10 +40,10 @@ public class User {
   @Schema(name = "email", example = "tom@myspace.com", pattern = EMAIL_PATTERN)
   protected String email;
 
-  @Schema(name = "roles", example = "[ADMIN]", type = "array", implementation = UserRole.class)
   @NonNull
   @NotEmpty
   @Singular
+  @ArraySchema(schema = @Schema(implementation = UserRole.class), uniqueItems = true, minItems = 1, maxItems = 5)
   protected Set<UserRole> roles;
 
 }
