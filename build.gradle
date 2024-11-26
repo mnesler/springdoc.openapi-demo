@@ -30,6 +30,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}") {
         exclude group: 'com.jayway.jsonpath', module: 'json-path'
     }
+    testImplementation 'junit:junit:4.13.1'
 
     //lombok
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
