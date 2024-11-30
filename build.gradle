@@ -1,9 +1,9 @@
 buildscript {
     ext {
-        javaVersion = '17'
+        javaVersion = '21'
         springBootVersion = '3.2.2'
         springDependencyManagementVersion = '1.1.0'
-        lombokVersion = '1.18.26'
+        lombokVersion = '1.18.30'
         junitVersion = '5.10.2'
         springOpenApiVerion = "2.3.0"
     }
@@ -18,8 +18,8 @@ repositories {
 }
 
 description = "Open API Demo"
-sourceCompatibility = "${javaVersion}"
-targetCompatibility = "${javaVersion}"
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter:${springBootVersion}")
@@ -30,7 +30,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}") {
         exclude group: 'com.jayway.jsonpath', module: 'json-path'
     }
-    testImplementation 'junit:junit:4.13.1'
 
     //lombok
     compileOnly("org.projectlombok:lombok:${lombokVersion}")

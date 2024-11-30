@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
-@AllArgsConstructor(onConstructor_ = @Autowired)
+@AllArgsConstructor
 public class UserController {
 
   private static final Logger log = LoggerFactory.getLogger(UserController.class);
